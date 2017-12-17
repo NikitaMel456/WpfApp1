@@ -22,7 +22,7 @@
     </Window.Resources>
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="575" VerticalAlignment="Top" Width="776">
-            <TabItem Header="TabItem">
+            <TabItem Header="Основная информация">
                 <Grid x:Name="UserAccept" Background="White" DataContext="{StaticResource elemFromGroupsViewSource}" MouseMove="Grid_MouseMove">
                     <Grid x:Name="grid1" DataContext="{StaticResource группыViewSource}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
@@ -152,20 +152,15 @@
                         <Label Content="Дата заказа:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
                         <TextBox x:Name="дата_заказаTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Дата заказа, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsEnabled="False"/>
                     </Grid>
-                    <TextBox x:Name="KolichTBX" HorizontalAlignment="Left" Height="23" Margin="534,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="TextBox_PreviewTextInput" Text="2"/>
-                    <TextBox x:Name="numTBX" HorizontalAlignment="Left" Height="23" Margin="603,460,0,0" TextWrapping="Wrap" Text="{Binding ClearBeforeFill}" VerticalAlignment="Top" Width="120">
-                        <TextBox.DataContext>
-                            <Food_Orders_DBDataSetTableAdapters:NumOfKurierTableAdapter/>
-                        </TextBox.DataContext>
-                    </TextBox>
-                    <Button x:Name="ZakazInMenu" Content="Button" HorizontalAlignment="Left" Margin="554,337,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+                    <TextBox x:Name="KolichTBX" HorizontalAlignment="Left" Height="23" Margin="534,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="TextBox_PreviewTextInput" Text="1"/>
+                    <Button x:Name="ZakazInMenu" Content="Сделать Заказ" HorizontalAlignment="Left" Margin="534,327,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click_1"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="Заказ">
                 <Grid Background="#FFE5E5E5" DataContext="{StaticResource showZakazViewSource}">
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="248,249,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-                    <TextBox x:Name="NaimDel" HorizontalAlignment="Left" Height="23" Margin="476,66,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-                    <TextBox x:Name="KolDel" HorizontalAlignment="Left" Height="23" Margin="476,106,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+                    <Button Content="Обновить" HorizontalAlignment="Left" Margin="218,241,0,0" VerticalAlignment="Top" Width="103" Click="Button_Click_2"/>
+                    <TextBox x:Name="NaimDel" HorizontalAlignment="Left" Height="23" Margin="476,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+                    <TextBox x:Name="KolDel" HorizontalAlignment="Left" Height="23" Margin="476,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
                     <Button x:Name="DeleteButton" Content="Удалить Заказ" HorizontalAlignment="Left" Margin="476,163,0,0" VerticalAlignment="Top" Width="130" Click="DeleteButton_Click"/>
                     <DataGrid x:Name="showZakazDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,458.4,336.4" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="showZakazDataGrid_SelectionChanged">
                         <DataGrid.Columns>
@@ -174,7 +169,8 @@
                             <DataGridTextColumn x:Name="суммаColumn" Binding="{Binding Сумма}" Header="Сумма" Width="SizeToHeader"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <TextBox x:Name="ResSummTBX" HorizontalAlignment="Left" Height="35" Margin="450,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" IsEnabled="False" FontSize="16"/>
+                    <TextBox x:Name="ResSummTBX" HorizontalAlignment="Left" Height="35" Margin="678,443,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" IsEnabled="False" FontSize="16"/>
+                    <Label Content="Общая стоимость заказа :" HorizontalAlignment="Left" Margin="499,449,0,0" VerticalAlignment="Top" Width="175" FontSize="14"/>
                 </Grid>
             </TabItem>
         </TabControl>

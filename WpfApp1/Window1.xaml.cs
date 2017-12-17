@@ -210,10 +210,17 @@ namespace WpfApp1
                 int vod = rnd.Next(1, (int)food_Orders_DBDataSetNumTableAdapter.CountKurierF());
                 food_Orders_DBDataSetNumTableAdapter.InsertZakazy1(DateTime.Now, vod, фИОTextBox.Text, номер_телефонаTextBox.Text);
                 ZakazInMenu.IsEnabled = true;
+
+
+                фИОTextBox.IsEnabled = false;
+                городTextBox.IsEnabled =false;
+                улицаTextBox.IsEnabled =false;
+                _Дом_квартираTextBox.IsEnabled =false;
+                номер_телефонаTextBox.IsEnabled =false;
             }
             else
             {
-                MessageBox.Show("Null");
+                MessageBox.Show("Заполните все поля");
             }
         }
 
@@ -240,6 +247,7 @@ namespace WpfApp1
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !(Char.IsDigit(e.Text, 0));
+            
         }
 
         private void наименованиеTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -271,6 +279,11 @@ namespace WpfApp1
 
                 WpfApp1.Food_Orders_DBDataSetTableAdapters.QueriesTableAdapter food_Orders_DBDataSetNumTableAdapter = new WpfApp1.Food_Orders_DBDataSetTableAdapters.QueriesTableAdapter();
                 ResSummTBX.Text = food_Orders_DBDataSetNumTableAdapter.CommPrice(фИОTextBox.Text, номер_телефонаTextBox.Text).ToString();
+
+
+                food_Orders_DBDataSetNumTableAdapter.UpdateForSumm1(фИОTextBox.Text, номер_телефонаTextBox.Text);
+
+
             }
             catch (Exception)
             {
